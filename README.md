@@ -23,20 +23,21 @@ go get -u github.com/schadokar/goscanenv
 package main
 
 import (
-    "fmt"
+	"fmt"
+	"log"
 
-    "github.com/schadokar/godotenv"
+	"github.com/schadokar/goscanenv"
 )
 
 func main() {
-    scanResult, err := godotenv()
+    scanResult, err := goscanenv.ScanEnv()
 
     if err != nil {
         log.Fatalln("Environment variables are missing.", err)   
         return
     }
 
-    fmt.Println("All environment variables are set.")
+    fmt.Println("All environment variables are set.",scanResult)
 }
 ```
 
@@ -62,14 +63,14 @@ func main() {
 		IgnoreEnv:  "prod.envignore",
 	}
 
-    scanResult, err := godotenv(opts)
+    scanResult, err := godotenv.ScanEnv(opts)
 
     if err != nil {
         log.Fatalln("Environment variables are missing.", err)   
         return
     }
 
-    fmt.Println("All environment variables are set.")
+    fmt.Println("All environment variables are set.", scanResult)
 }
 ```
 
