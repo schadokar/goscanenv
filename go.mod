@@ -1,4 +1,4 @@
-module goscanenv
+module github.com/schadokar/goscanenv
 
 go 1.16
 
